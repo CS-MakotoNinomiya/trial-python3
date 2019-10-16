@@ -1,10 +1,12 @@
 import os
+import sys
 import datetime
 import pathlib
+import traceback
 
 # 相対パスでファイルパス
 path_base = os.path.dirname(os.path.abspath(__file__))
-path_file = os.path.normpath(os.path.join(path_base, "./tmp/sample.txt"))
+path_file = os.path.normpath(os.path.join(path_base, "./tmppp/sample.txt"))
 
 
 def datetime_now():
@@ -23,7 +25,11 @@ try:
         f.write("{0:%Y-%m-%d %H:%M:%S}".format(datetime_now()) + " end.\n\n")
         f.flush()
 except Exception as e:
-    print(e)
+    print("Unexpected error:", e)
+    except_str = traceback.format_exc()
+    print('==== exception traceback start.')
+    print(except_str)
+    print('==== exception traceback end.')
 
 try:
     with pathlib.Path(path_file).open(mode='r') as f:
@@ -37,7 +43,10 @@ try:
             print(line)
         print("2019-10-04 10:13:36 start." in line_array)
 except Exception as e:
-    print(e)
+    except_str = traceback.format_exc()
+    print('==== exception traceback start.')
+    print(except_str)
+    print('==== exception traceback end.')
 
 try:
     with pathlib.Path(path_file).open(mode='r') as f:
@@ -51,4 +60,7 @@ try:
             print(line)
             line = f.readline()
 except Exception as e:
-    print(e)
+    except_str = traceback.format_exc()
+    print('==== exception traceback start.')
+    print(except_str)
+    print('==== exception traceback end.')

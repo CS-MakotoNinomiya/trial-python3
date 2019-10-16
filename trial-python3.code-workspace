@@ -11,6 +11,15 @@
 		},
 		{
 			"path": "trial003"
+		},
+		{
+			"path": "trial004-selenium"
+		},
+		{
+			"path": "trial005"
+		},
+		{
+			"path": "trial006-log"
 		}
 	],
 	"settings": {}
